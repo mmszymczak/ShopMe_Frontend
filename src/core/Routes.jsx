@@ -10,7 +10,6 @@ import SignUpScreen from 'screens/SignUp/SignUp';
 import RegisterScreen from 'screens/Register/Register';
 import SuccessAddScreen from 'screens/Add/SuccessAdd/SuccessAdd';
 import SuccessRegisterScreen from 'screens/Register/SuccessRegister/SuccessRegister';
-import TermsAndConditionsScreen from 'screens/Register/TermsAndConditions/TermsAndConditions';
 import ArticleScreen from 'screens/Article/Article';
 import Layout from 'components/App/Layout/Layout';
 
@@ -32,7 +31,6 @@ export default() => (
         <Route exact path="/login" render={wrapInLayout(LoginScreen, { requiresAuthorization: false })} />
         <Route exact path="/signup" render={wrapInLayout(SignUpScreen, { requiresAuthorization: false })} />
         <Route exact path="/register" render={wrapInLayout(RegisterScreen, { requiresAuthorization: false })} />
-        <Route exact path="/articles/terms-and-conditions" render={wrapInLayout(TermsAndConditionsScreen, { requiresAuthorization: false })} />
         <Route exact path="/articles/:article" render={wrapInLayout(ArticleScreen, { requiresAuthorization: false })} />
       </Switch>
     </ScrollToTop>

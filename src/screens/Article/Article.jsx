@@ -11,8 +11,17 @@ class ArticleScreen extends React.Component {
   }
 
   componentDidMount() {
-    const { http } = this.props;
     const name = this.props.match.params.article;
+    this.fetchContent(name);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const name = nextProps.match.params.article;
+    this.fetchContent(name);
+  }
+
+  fetchContent(name) {
+    const { http } = this.props;
     http.get(`/assets/articles/pl/${name}.md`, null, { parse: 'text' })
       .then((article) => {
         this.setState({ content: article });
