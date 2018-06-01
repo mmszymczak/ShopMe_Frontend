@@ -1,6 +1,7 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import MarkdownArticle from 'components/UI/MarkdownArticle/MarkdownArticle';
+import AppError from 'components/App/Error/Error';
 
 class ArticleScreen extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class ArticleScreen extends React.Component {
   }
 
   render() {
-    return <MarkdownArticle source={this.state.content} />;
+    return this.state.content.includes('<!DOCTYPE html>') ? <AppError /> : <MarkdownArticle source={this.state.content} />;
   }
 }
 
