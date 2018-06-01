@@ -120,15 +120,15 @@ const Footer = props => (
           </Link>
         </div>
         <div className="footer-top__row">
-          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.privacy')}</Link>
-          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.statute')}</Link>
-          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.help')}</Link>
-          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.shopping')}</Link>
-          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.sale')}</Link>
+          <Link to="/articles/privacy" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.privacy')}</Link>
+          <Link to="/articles/conditions" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.statute')}</Link>
+          <Link to="/articles/help" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.help')}</Link>
+          <Link to="/articles/shopping" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.shopping')}</Link>
+          <Link to="/articles/sale" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.sale')}</Link>
         </div>
         <div className="footer-top__row">
-          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.forExhibitors.seller')}</Link>
-          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.forExhibitors.conditions')}</Link>
+          <Link to="/articles/seller" className="footer-top__row--link">{props.t('components.UI.footer.forExhibitors.seller')}</Link>
+          <Link to="/articles/conditions" className="footer-top__row--link">{props.t('components.UI.footer.forExhibitors.conditions')}</Link>
         </div>
       </div>
     </div>

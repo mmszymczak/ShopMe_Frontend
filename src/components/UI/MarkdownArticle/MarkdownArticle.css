@@ -1,0 +1,11 @@
+
+.markdown-article {
+  width: 70%;
+  margin: 15rem auto;
+}
+
+@media (min-width: 768px) {
+  .markdown-article {
+    width: 50%;
+  }
+}

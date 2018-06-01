@@ -53,8 +53,9 @@ class TermsAndConditionsCheckbox extends Component {
             {t('components.register.termsAndConditions')}
             <Link
               className="register__checkbox--link"
-              href="/articles/terms-and-conditions"
-              to="/articles/terms-and-conditions"
+              href="/articles/conditions"
+              to="/articles/conditions"
+              target="_blank"
             >
               {t('components.register.termsAndConditionsLink')}
             </Link>

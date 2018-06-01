@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 
+import './MarkdownArticle.css';
+
 class MarkdownArticle extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +13,7 @@ class MarkdownArticle extends Component {
 
   render() {
     return (
-      <ReactMarkdown source={this.props.source} />
+      <ReactMarkdown className="markdown-article" source={this.props.source} />
     );
   }
 }
