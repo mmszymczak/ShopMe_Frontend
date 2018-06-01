@@ -12,7 +12,7 @@
 
 .add-form {
   max-width: 60%;
-  margin: 15rem auto;
+  margin: 5rem auto;
   background-color: #FFFFFF;
   font-size: 1.6rem;
   color: #000000;
@@ -43,6 +43,7 @@
 @media screen and (max-width: 960px) {
   .add-form {
     max-width: 100%;
+    margin: 6rem auto;
   }
 }
 

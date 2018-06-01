@@ -1,5 +1,4 @@
 import React from 'react';
-import SearchForm from 'components/Search/SearchForm/SearchForm';
 import FoundSearchResults from 'components/Search/SearchResults/FoundSearchResults/FoundSearchResults';
 import NoSearchResults from 'components/Search/SearchResults/NoSearchResults/NoSearchResults';
 import { Redirect } from 'react-router';
@@ -14,7 +13,6 @@ export default class SearchScreen extends React.Component {
     const page = searchQueryValue.get('page') ? searchQueryValue.get('page') : 1;
 
     this.state = {
-      services: undefined,
       foundServices: [],
       notFoundServices: null,
       phrase,
@@ -36,14 +34,17 @@ export default class SearchScreen extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.location.category !== nextProps.location.category) {
+    if (this.props.location.category !== nextProps.location.category ||
+      this.props.location.search !== nextProps.location.search) {
       const getDataWithReceivedProps = this.getData.bind(this);
-      const category = new URLSearchParams(nextProps.location.search).get('category');
+      const searchQueryValue = new URLSearchParams(nextProps.location.search);
+      const category = searchQueryValue.get('category');
 
       this.setState({
         category,
         paginationData: { pageNumber: 1 },
         page: 1,
+        phrase: searchQueryValue.get('title'),
       }, getDataWithReceivedProps);
     }
   }
@@ -76,7 +77,6 @@ export default class SearchScreen extends React.Component {
       .then((services) => {
         if (services.content) {
           this.setState({
-            services,
             foundServices: services.content,
             notFoundServices: false,
             paginationData: {
@@ -85,7 +85,7 @@ export default class SearchScreen extends React.Component {
             },
           });
         } else {
-          this.setState({ services: [], notFoundServices: true });
+          this.setState({ notFoundServices: true });
         }
       });
   }
@@ -162,12 +162,6 @@ export default class SearchScreen extends React.Component {
     }
     return (
       <div>
-        <SearchForm
-          services={this.state.services}
-          phrase={this.state.phrase}
-          afterChange={this.updateSearchPhrase}
-          onSubmit={this.onSubmit}
-        />
         {results}
       </div>
     );

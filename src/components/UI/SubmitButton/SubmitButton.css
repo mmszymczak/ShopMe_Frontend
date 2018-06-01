@@ -1,6 +1,6 @@
 .form__button--lens {
   position: absolute;
-  top: 0.8rem;
+  top: 0.5rem;
   left: 1rem;
   padding: 1.1rem;
   border: none;
@@ -12,12 +12,44 @@
   background-position: 50% 50%;
 }
 
+.form__button--submit-home {
+  display: none;
+}
+
+.form__button--submit-home:disabled {
+  background: #999;
+}
+
 .form__button--submit {
   display: none;
 }
 
 @media (min-width: 768px) {
+  .form__button--submit-home {
+    display: block;
+    max-height: 3.5rem;
+    padding: 1rem 3rem;
+    align-self: center;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+
   .form__button--submit {
+    display: none;
+  }
+
+  .withYellowBackground .form__button--submit-home:disabled {
+    display: none;
+  }
+
+  .withSearchBar .form__button--submit:disabled {
+    background: #999;
+    cursor: auto;
+  }
+
+.withSearchBar .form__button--submit {
     display: block;
     max-height: 3.5rem;
     padding: 1rem 3rem;
@@ -30,5 +62,26 @@
   .form__button--submit:disabled {
     background: #999;
     cursor: auto;
+  }
+
+  .form__button--lens {
+    top: 0.8rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .form__button--submit {
+    display: block;
+    max-height: 3.5rem;
+    padding: 1rem 3rem;
+    align-self: center;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .withYellowBackground .form__button--submit-home:disabled {
+    display: none;
   }
 }

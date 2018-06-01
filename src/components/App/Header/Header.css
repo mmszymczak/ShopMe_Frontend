@@ -1,6 +1,5 @@
 header {
   width: 100%;
-  margin-bottom: 3rem;
   max-height: 5.4rem;
   background: #fff;
   font-size: 1.4rem;
@@ -8,9 +7,39 @@ header {
   z-index: 2;
 }
 
+.withLargePhoto {
+  height: 38rem;
+  background: url("/assets/images/search-section/mobile.jpg");
+  background-size: cover;
+  background-position: 100% 100%;
+}
+
+.withYellowBackground {
+  background: #fbdd61;
+  height: 12.9rem;
+}
+
+.withSearchBar {
+  background: #fbdd61;
+  height: 16.4rem;
+}
+
 .header__container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 5.4rem 11rem;
+  justify-content: center;
+}
+
+.withLargePhoto .header__container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 5.4rem;
+  justify-content: center;
+}
+
+.withYellowBackground .header__container {
+  grid-template-rows: 5.4rem 9rem;
 }
 
 .logo {
@@ -20,12 +49,13 @@ header {
 }
 
 .logo__link {
-  padding-left: 2.5rem;
+  grid-column: 1 / span 1;
+  padding-left: 0.5rem;
 }
 
 nav {
   position: relative;
-  grid-column: 4 / span 1;
+  grid-column: 2 / span 4;
   display: grid;
   justify-items: end;
   align-items: center;
@@ -34,6 +64,10 @@ nav {
 nav a {
   color: #000;
   text-decoration: none;
+}
+
+.withSearchBar nav {
+  margin: 0;
 }
 
 .user-name {
@@ -59,6 +93,7 @@ nav a {
 .header__links {
   position: absolute;
   top: 5.2rem;
+  margin: 0.1rem 0.8rem 0 0;
   background: #fff;
   box-shadow: 0 0.7rem 1rem 0 rgba(0,0,0,0.2);
 }
@@ -71,16 +106,17 @@ nav a {
 }
 
 .header__link:hover {
-    color:#FFFFFF;
-    background-color: #fade42;
-    border-radius: 0.1rem;
-    cursor: pointer;
-    transition: background-color 0.5s ease;
-    transition: color 0.5s ease;
+  color:#FFFFFF;
+  background-color: #fade42;
+  border-radius: 0.1rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .menu-visible {
   display: block;
+  z-index: 2;
 }
 
 .menu-invisible {
@@ -89,19 +125,87 @@ nav a {
 
 @media (min-width: 768px) {
   header {
-    position: absolute;
-    top: 5rem;
     font-size: 1.5rem;
     padding: 0;
     box-shadow: 0 0.2rem 1rem 0 rgba(0,0,0,0.4);
+    margin-bottom: 3rem;
   }
-  .header__container {
-    max-width: 76.8rem;
-    margin: 0 auto;
+
+  .withSearchBar {
+    padding-top: 2rem;
+    height: 18.8rem;
+  }
+
+  .withLargePhoto {
+    height: 48rem;
+    padding-top: 2rem;
+  }
+
+  .withYellowBackground {
+    padding-top: 2rem;
+    height: 9.4rem;
+  }
+
+  .withLargePhoto .header__container {
+    grid-template-columns: repeat(10, 7.5rem);
+    grid-template-rows: 5.4rem;
+    justify-content: center
+  }
+
+  .withYellowBackground .header__container {
+    grid-template-columns: repeat(12, 6rem);
+    grid-template-rows: 5.4rem;
+    justify-content: center
+  }
+
+  .withSearchBar .header__container {
+    display: grid;
+    grid-template-columns: repeat(12, 6rem);
+    grid-template-rows: 5.4rem 11.5rem;
+    justify-content: center
   }
 
   .header__arrow {
     margin-right: 2.5rem;
+  }
+
+  nav {
+    grid-column: 5 / span 6;
+    margin: auto 4rem auto 0;
+    position: relative;
+    display: grid;
+    justify-items: end;
+    align-items: center;
+  }
+
+  .withYellowBackground nav, .withSearchBar nav {
+    grid-column: 8 / span 5;
+    margin: auto 3rem auto 0;
+  }
+
+  .user-name {
+    font-size: 1.6rem;
+  }
+
+  .logo__link {
+    grid-column: 1 / span 2;
+    margin-left: 4rem;
+  }
+
+  .withYellowBackground .logo__link {
+    margin-left: 2.5rem
+  }
+
+  .withSearchBar .logo__link {
+    margin-left: 2.5rem
+  }
+
+  .withSearchBar .menu-visible {
+    z-index: 3;
+  }
+
+  .header__links{
+    margin: -1.4rem 0.8rem 0 0;
   }
 }
 
@@ -109,25 +213,75 @@ nav a {
   header {
     padding: 0;
     font-size: 1.6rem;
+    margin-bottom: 3rem;
   }
+
   .header__container {
     max-width: 118rem;
-    padding: 0 2.5rem;
-    display: flex;
-    justify-content: flex-end;
+    margin: 0 auto;
   }
+
+  .withSearchBar {
+    height: 19.8rem;
+  }
+
+  .withLargePhoto .header__container {
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+    grid-template-rows: 5.4rem;
+  }
+
+  .withYellowBackground .header__container {
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+    grid-template-rows: 5.4rem;
+  }
+
+  .withSearchBar .header__container {
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+    grid-template-rows: 5.4rem 12.4rem;
+  }
+
   .logo__link {
-    margin-right: auto;
+    margin: 0 auto 0 0;
   }
-  nav {
-    display: flex;
+
+  .withYellowBackground .logo__link, .withLargePhoto .logo__link {
+    margin-left: 1.3rem;
   }
+
+  .withSearchBar .logo__link {
+    margin-left: 1.3rem;
+  }
+
+  nav.logged-in {
+    margin: auto 0;
+    grid-auto-flow: row;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .withYellowBackground nav, .withLargePhoto nav {
+    grid-column: 10 / span 8;
+    margin: auto 1.2rem auto 0;
+  }
+
+  .withSearchBar nav {
+    display: grid;
+    margin: auto 1.2rem auto 0;
+    grid-column: 10 / span 8;
+    grid-row: 1 / 2;
+  }
+
   .header__links {
     position: static;
     display: flex;
     justify-items: end;
     box-shadow: none;
     width: auto;
+    top: auto;
+    margin: 0;
   }
   .header__link {
     width: auto;
@@ -135,9 +289,6 @@ nav a {
   }
   .header__arrow {
     margin: 0 1rem 0 0;
-  }
-  .user-name {
-    font-size: 1.6rem;
   }
   .header__icons {
     display: none;
