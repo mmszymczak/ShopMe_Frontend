@@ -43,7 +43,7 @@ export default class SearchScreen extends React.Component {
       this.setState({
         category,
         paginationData: { pageNumber: 1 },
-        page: 1,
+        page: category ? 1 : searchQueryValue.get('page'),
         phrase: searchQueryValue.get('title'),
       }, getDataWithReceivedProps);
     }
@@ -62,7 +62,7 @@ export default class SearchScreen extends React.Component {
     const { http } = this.props;
     const { category } = this.state;
     const title = this.state.phrase;
-    const [page] = [this.state.page];
+    const { page } = this.state;
 
     let params;
     if (!category) {
@@ -83,6 +83,19 @@ export default class SearchScreen extends React.Component {
               totalPages: services.totalPages,
               pageNumber: services.number + 1,
             },
+          });
+        } else if (page && page > services.totalPages && services.totalElements > 0) {
+          this.setState({
+            page: services.totalPages,
+            paginationData: {
+              totalPages: services.totalPages,
+              pageNumber: services.totalPages,
+            },
+            fireRedirect: true,
+          }, () => {
+            this.setState({
+              fireRedirect: false,
+            });
           });
         } else {
           this.setState({ notFoundServices: true });
